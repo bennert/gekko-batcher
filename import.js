@@ -9,7 +9,7 @@ const { Observable } = require('rxjs')
 const chalk = require('chalk')
 const configsGenerator = require(util.dirs().tools + '/configsGenerator')
 const moment = require('moment')
-const ProgressBar = require('ascii-progress')
+const ProgressBar = require('progress')
 
 /*
 * Observable with Proxy inside for message listening
@@ -156,10 +156,10 @@ async function listenImports (currentImport, config) {
     (resolve) => {
       let from = moment.utc(config.importer.daterange.from)
       let to = moment.utc(config.importer.daterange.to)
-      let bar = new ProgressBar({
-        schema: ':bar',
-        total: 100
-      })
+      let bar = new ProgressBar(
+        ':bar :current/:total',
+        {total: 100}
+      )
       let firstLaunch = true
 
       const msgSubscription = importMessageObservable.subscribe((message) => {
