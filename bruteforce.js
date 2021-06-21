@@ -61,7 +61,7 @@ async function runBacktest (config) {
         info.successfulBacktests++
 
         if (util.config.saveToCsv) {
-          row = resultsHandler.prepareCsvRow(response.data)
+          row = resultsHandler.prepareCsvRow(response.data, config)
           csvStream.write(row)
         }
 
