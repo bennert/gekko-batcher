@@ -59,9 +59,10 @@ const resultsHandler = {
     }
   },
   prepareCsvRow (data, config) {
-    let market = data.market
-    let tradingAdvisor = data.tradingAdvisor
-    let strategyParameters = data.strategyParameters
+    let market = config.watch
+    let tradingAdvisor = config.tradingAdvisor
+    let method = tradingAdvisor.method
+    let strategyParameters = config[method]
     let performanceReport = data.performanceReport
     let allTrades = performanceReport.trades
 
@@ -69,7 +70,7 @@ const resultsHandler = {
     let biggestWinAndLoss = this.findBiggestWinAndLoss(data)
 
     let resultRow = {
-      'Method': tradingAdvisor.method,
+      'Method': method,
       'Market performance (%)': math.round(performanceReport.market, 3),
       'Strat performance (%)': math.round(performanceReport.relativeProfit, 3),
       'Profit': math.round(performanceReport.profit, 3),
