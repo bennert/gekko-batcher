@@ -25,7 +25,6 @@
   },
   "homepage": "https://gitlab.com/bud-fox/gekko-bruteforce#readme",
   "dependencies": {
-    "ascii-progress": "^1.0.5",
     "async": "^2.6.1",
     "axios": "^0.18.1",
     "chalk": "^2.4.1",
@@ -38,6 +37,7 @@
     "mathjs": "^5.2.3",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
+    "progress": "^2.0.3",
     "rxjs": "^6.4.0",
     "toml": "^2.3.3",
     "uniqid": "^5.0.3",
